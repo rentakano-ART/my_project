@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本語翻訳アプリ</title>
+</head>
+<body>
+    <h1>日本語から英語に翻訳</h1>
+    <form action="/" method="post">
+        <label for="text">翻訳したい日本語：</label>
+        <input type="text" id="text" name="text" placeholder="ここに日本語を入力" required>
+        <button type="submit">翻訳</button>
+    </form>
+
+    {% if translated_text %}
+    <h2>翻訳結果：</h2>
+    <p>{{ translated_text }}</p>
+    {% endif %}
+</body>
+</html>
