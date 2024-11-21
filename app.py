@@ -56,4 +56,5 @@ def home():
     return render_template("index.html", translated_text=translated_text)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # 以下の変更でポートバインディングを0.0.0.0に設定
+    app.run(host="0.0.0.0", port=5000, debug=True)  # ポートを5000に設定し、0.0.0.0にバインド
