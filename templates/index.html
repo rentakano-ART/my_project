@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本語翻訳アプリ</title>
+    <title>日本語から英語に翻訳</title>
 </head>
 <body>
     <h1>日本語から英語に翻訳</h1>
-    <form action="/" method="post">
-        <label for="text">翻訳したい日本語：</label>
-        <input type="text" id="text" name="text" placeholder="ここに日本語を入力" required>
+    <form method="post">
+        <label for="text">翻訳したい日本語：</label><br>
+        <textarea name="text" id="text" rows="5" cols="50" placeholder="ここに翻訳したいテキストを入力してください"></textarea><br>
         <button type="submit">翻訳</button>
     </form>
-
+    <hr>
     {% if translated_text %}
     <h2>翻訳結果：</h2>
     <p>{{ translated_text }}</p>
