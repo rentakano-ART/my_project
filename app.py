@@ -137,4 +137,4 @@ def upload_csv():
 if __name__ == "__main__":
     # 初回実行時にデータベースを作成
     create_db()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
