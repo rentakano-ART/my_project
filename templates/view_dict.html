@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻訳辞書</title>
+</head>
+<body>
+    <h1>翻訳辞書</h1>
+
+    <ul>
+        {% for entry in dict_list %}
+            <li>{{ entry.japanese }} - {{ entry.english }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('home') }}">ホームに戻る</a>
+</body>
+</html>

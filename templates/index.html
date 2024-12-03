@@ -3,19 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本語から英語に翻訳</title>
+    <title>翻訳ツール</title>
 </head>
 <body>
-    <h1>日本語から英語に翻訳</h1>
-    <form method="post">
-        <label for="text">翻訳したい日本語：</label><br>
-        <textarea name="text" id="text" rows="5" cols="50" placeholder="ここに翻訳したいテキストを入力してください"></textarea><br>
-        <button type="submit">翻訳</button>
+    <h1>翻訳ツール</h1>
+
+    <!-- 翻訳フォーム -->
+    <form method="POST">
+        <label for="text">翻訳するテキスト:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
+        <button type="submit">翻訳する</button>
     </form>
-    <hr>
+
     {% if translated_text %}
-    <h2>翻訳結果：</h2>
-    <p>{{ translated_text }}</p>
+        <h2>翻訳結果:</h2>
+        <p>{{ translated_text }}</p>
     {% endif %}
+
+    <h2>辞書に単語を追加</h2>
+    <!-- 単語追加フォーム -->
+    <form action="{{ url_for('add_word') }}" method="POST">
+        <label for="japanese">日本語:</label>
+        <input type="text" id="japanese" name="japanese" required><br><br>
+        
+        <label for="english">英語:</label>
+        <input type="text" id="english" name="english" required><br><br>
+        
+        <button type="submit">単語を追加</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <h2>登録された単語</h2>
+    <ul>
+        {% for entry in dict_list %}
+            <li>{{ entry.japanese }} - {{ entry.english }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('view_dict') }}">辞書を見る</a>
 </body>
 </html>
