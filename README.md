@@ -1,0 +1,1 @@
+# ARTerrace-translation-tool
